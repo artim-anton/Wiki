@@ -1,7 +1,6 @@
 package com.artimanton.wiki.retrofit
 
 
-
 object Common {
     private val BASE_URL = "https://rickandmortyapi.com/api/"
     val retrofitService: RetrofitServieces.RetrofitServices
