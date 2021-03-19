@@ -1,6 +1,5 @@
 package com.artimanton.wiki.room
 
-import android.provider.ContactsContract.CommonDataKinds.Note
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.artimanton.wiki.model.Character
@@ -23,6 +22,6 @@ interface CharacterDao {
     @Delete
     fun delete(character: Character?)
 
-    @Query("SELECT * FROM character ORDER BY species DESC")
+    @Query("SELECT * FROM character ORDER BY id ASC")
     fun getAllNotes(): LiveData<List<Character>>?
 }
