@@ -12,6 +12,7 @@ import com.artimanton.wiki.retrofit.RetrofitServices
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var mService: RetrofitServices
@@ -34,12 +35,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun getAllMovieList() {
 
-        mService.getCharacterList().enqueue(object : Callback<MutableList<Character>> {
-            override fun onFailure(call: Call<MutableList<Character>>, t: Throwable) {
+        mService.getCharacterList().enqueue( object : Callback<Character> {
+            override fun onFailure(call: Call<Character>, t: Throwable) {
                 Toast.makeText(this@MainActivity, "Get post failed", Toast.LENGTH_LONG).show()
             }
 
-            override fun onResponse(call: Call<MutableList<Character>>, response: Response<MutableList<Character>>) {
+            override fun onResponse(call: Call<Character>, response: Response<Character>) {
                 adapter = CharacterAdapter(baseContext, response.body()!!)
                 adapter.notifyDataSetChanged()
                 recyclerView.adapter = adapter

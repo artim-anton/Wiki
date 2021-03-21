@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.item_character.view.*
 import java.lang.String
 
 
-class CharacterAdapter(private val context: Context, private var character: List<Character>): RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
+class CharacterAdapter(private val context: Context, private var character: Character): RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView: View = LayoutInflater.from(parent.context)
@@ -22,13 +22,13 @@ class CharacterAdapter(private val context: Context, private var character: List
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentCharacter: Character = character.get(position)
+        val currentCharacter: Character = character
         holder.textViewTitle.setText(currentCharacter.name)
         holder.textViewDescription.setText(currentCharacter.species)
         holder.textViewPriority.setText(String.valueOf(currentCharacter.created))
     }
 
-    override fun getItemCount() = character.size
+    override fun getItemCount() = 1
 
     /*fun setNotes(character: List<Character?>) {
         this.character = character as List<Character>
