@@ -5,15 +5,18 @@ import android.provider.ContactsContract.CommonDataKinds.Note
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.artimanton.wiki.R
+import com.artimanton.wiki.model.AllCharacters
 import com.artimanton.wiki.model.Character
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_character.view.*
 import java.lang.String
 
 
-class CharacterAdapter(private val context: Context, private var character: Character): RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
+class CharacterAdapter(private val context: Context, private var character: AllCharacters): RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView: View = LayoutInflater.from(parent.context)
@@ -22,13 +25,13 @@ class CharacterAdapter(private val context: Context, private var character: Char
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentCharacter: Character = character
+        val currentCharacter: Character = character.results!!.get(position)
+        Picasso.get().load(currentCharacter.image).into(holder.imageView)
         holder.textViewTitle.setText(currentCharacter.name)
-        holder.textViewDescription.setText(currentCharacter.species)
-        holder.textViewPriority.setText(String.valueOf(currentCharacter.created))
+        //holder.textViewDescription.setText(currentCharacter.species)
     }
 
-    override fun getItemCount() = 1
+    override fun getItemCount() = character.results!!.size
 
     /*fun setNotes(character: List<Character?>) {
         this.character = character as List<Character>
@@ -37,13 +40,13 @@ class CharacterAdapter(private val context: Context, private var character: Char
 
     open class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         internal val textViewTitle: TextView
-        internal val textViewDescription: TextView
-        internal val textViewPriority: TextView
+        //internal val textViewDescription: TextView
+        internal val imageView: ImageView
 
         init {
             textViewTitle = itemView.text_view_title
-            textViewDescription = itemView.text_view_description
-            textViewPriority = itemView.text_view_priority
+            //textViewDescription = itemView.text_view_description
+            imageView = itemView.image
         }
     }
 }

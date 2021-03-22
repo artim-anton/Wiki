@@ -2,10 +2,13 @@ package com.artimanton.wiki
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TableLayout
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.artimanton.wiki.adapter.CharacterAdapter
+import com.artimanton.wiki.model.AllCharacters
 import com.artimanton.wiki.model.Character
 import com.artimanton.wiki.retrofit.Common
 import com.artimanton.wiki.retrofit.RetrofitServices
@@ -27,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         mService = Common.retrofitService
         recyclerView = findViewById(R.id.recycler_view)
         recyclerView.setHasFixedSize(true)
-        layoutManager = LinearLayoutManager(this)
+        layoutManager = GridLayoutManager(this,2)
         recyclerView.layoutManager = layoutManager
 
         getAllMovieList()
@@ -35,12 +38,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun getAllMovieList() {
 
-        mService.getCharacterList().enqueue( object : Callback<Character> {
-            override fun onFailure(call: Call<Character>, t: Throwable) {
+        mService.getCharacterList().enqueue( object : Callback<AllCharacters> {
+            override fun onFailure(call: Call<AllCharacters>, t: Throwable) {
                 Toast.makeText(this@MainActivity, "Get post failed", Toast.LENGTH_LONG).show()
             }
 
-            override fun onResponse(call: Call<Character>, response: Response<Character>) {
+            override fun onResponse(call: Call<AllCharacters>, response: Response<AllCharacters>) {
                 adapter = CharacterAdapter(baseContext, response.body()!!)
                 adapter.notifyDataSetChanged()
                 recyclerView.adapter = adapter
