@@ -2,16 +2,15 @@ package com.artimanton.wiki
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TableLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.artimanton.wiki.adapter.CharacterAdapter
 import com.artimanton.wiki.model.AllCharacters
-import com.artimanton.wiki.model.Character
 import com.artimanton.wiki.retrofit.Common
 import com.artimanton.wiki.retrofit.RetrofitServices
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,7 +27,7 @@ class MainActivity : AppCompatActivity(), CharacterAdapter.OnItemClickListener {
         setContentView(R.layout.activity_main)
 
         mService = Common.retrofitService
-        recyclerView = findViewById(R.id.recycler_view)
+        recyclerView = recycler_view
         recyclerView.setHasFixedSize(true)
         layoutManager = GridLayoutManager(this,2)
         recyclerView.layoutManager = layoutManager

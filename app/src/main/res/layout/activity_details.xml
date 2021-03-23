@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data class="CharacterDetailsBinding">
+
+    <variable
+        name="character"
+        type="com.artimanton.wiki.model.Character" />
+
+</data>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/image_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_launcher_background"
+                    />
+                <TextView
+                    android:id="@+id/text_view_title_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_below="@id/image_details"
+                    android:maxLines="1"
+                    android:text="Name"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <TextView
+                    android:id="@+id/text_view_status_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_below="@id/text_view_title_details"
+                    android:maxLines="1"
+                    android:text="Status"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:id="@+id/text_view_species_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_below="@id/text_view_status_details"
+                    android:maxLines="1"
+                    android:text="Species"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:id="@+id/text_view_type_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_below="@id/text_view_species_details"
+                    android:maxLines="1"
+                    android:text="Type"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:id="@+id/text_view_gender_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_below="@id/text_view_type_details"
+                    android:maxLines="1"
+                    android:text="Gender"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            </RelativeLayout>
+
+
+</layout>

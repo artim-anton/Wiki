@@ -1,7 +1,6 @@
 package com.artimanton.wiki.viewModel
 
 import android.app.Application
-import android.provider.ContactsContract.CommonDataKinds.Note
 import androidx.lifecycle.LiveData
 import com.artimanton.wiki.model.Character
 import com.artimanton.wiki.room.CharacterDao
