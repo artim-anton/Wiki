@@ -17,7 +17,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CharacterAdapter.OnItemClickListener {
     lateinit var mService: RetrofitServices
     lateinit var layoutManager: LinearLayoutManager
     lateinit var adapter: CharacterAdapter
@@ -44,10 +44,18 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<AllCharacters>, response: Response<AllCharacters>) {
-                adapter = CharacterAdapter(baseContext, response.body()!!)
+                adapter = CharacterAdapter(this@MainActivity, response.body()!!)
                 adapter.notifyDataSetChanged()
                 recyclerView.adapter = adapter
             }
         })
+
     }
+
+    override fun onItemClick(position: Int) {
+        Toast.makeText(this, "Item $position clicked", Toast.LENGTH_SHORT).show()
+        adapter.notifyItemChanged(position)
+    }
+
+
 }
