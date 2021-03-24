@@ -11,4 +11,8 @@
         android:name="com.artimanton.wiki.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/detailsActivity"
+        android:name="com.artimanton.wiki.DetailsActivity"
+        android:label="DetailsActivity" />
 </navigation>

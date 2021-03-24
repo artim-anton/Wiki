@@ -15,7 +15,7 @@ abstract class RoomDB : RoomDatabase() {
         companion object {
                 private lateinit var context: Context
                 private val database: RoomDB by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
-                        Room.databaseBuilder(context, RoomDB::class.java, "character.db")
+                        Room.databaseBuilder(context, RoomDB::class.java, "wiki.db")
                                 .fallbackToDestructiveMigration()
                                 .build()
                 }

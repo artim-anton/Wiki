@@ -3,9 +3,9 @@ package com.artimanton.wiki.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
+@Entity(tableName = "character_table")
 data class Character (
-    var id: String? = null,
+    @PrimaryKey var id: String? = null,
     var name: String? = null,
     var status: String? = null,
     var species: String? = null,
